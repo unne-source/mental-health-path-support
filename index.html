@@ -17,22 +17,23 @@
       padding: 0;
       box-sizing: border-box;
     }
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
     body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       background-color: var(--bg-color);
       color: var(--text-color);
       font-family: "Noto Sans KR", sans-serif;
-      min-height: 100vh;
-      padding-bottom: 70px; /* 네비게이션 높이 만큼 여유 공간 */
     }
     .container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center; /* 세로 중앙 정렬 */
-      align-items: center;     /* 가로 중앙 정렬 */
-      text-align: center;
       width: 100%;
       max-width: 360px;
-      height: calc(100vh - 70px); /* nav 제외 높이 */
+      text-align: center;
       padding: 20px;
     }
     h1 {
