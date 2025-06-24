@@ -21,18 +21,19 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       font-family: "Noto Sans KR", sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       min-height: 100vh;
       padding-bottom: 70px; /* 네비게이션 높이 만큼 여유 공간 */
     }
     .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* 세로 중앙 정렬 */
+      align-items: center;     /* 가로 중앙 정렬 */
       text-align: center;
       width: 100%;
       max-width: 360px;
+      height: calc(100vh - 70px); /* nav 제외 높이 */
       padding: 20px;
-      flex: 1;
     }
     h1 {
       font-size: 1.4rem;
@@ -113,24 +114,20 @@
 
   <nav>
     <a href="#" class="nav-item">
-      <img src="home-icon.svg" alt="홈">
+      <img src="home-icon.svg">
       <span>홈</span>
     </a>
     <a href="#" class="nav-item active">
-      <img src="trash-icon.svg" alt="쓰레기통">
+      <img src="trash-icon.svg">
       <span>쓰레기통</span>
     </a>
     <a href="#" class="nav-item">
-      <img src="note-icon.svg" alt="감정노트">
+      <img src="note-icon.svg">
       <span>감정노트</span>
     </a>
     <a href="#" class="nav-item">
-      <img src="palette-icon.svg" alt="감정아트">
-      <span>감정아트</span>
-    </a>
-    <a href="#" class="nav-item">
-      <img src="star-icon.svg" alt="별점">
-      <span>별점</span>
+      <img src="star-icon.svg">
+      <span>상담소</span>
     </a>
   </nav>
 </body>
