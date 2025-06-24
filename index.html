@@ -1,26 +1,137 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MENTAL HEALTH PATH SUPPORT</title>
-  <link rel="stylesheet" href="css/style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>감정 쓰레기통</title>
+  <style>
+    :root {
+      --bg-color: #2E2E48;
+      --text-color: #EDEDED;
+      --accent-color: #EDEDED;
+      --button-bg: #EDEDED;
+      --button-text: #2E2E48;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: "Noto Sans KR", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding-bottom: 70px; /* 네비게이션 높이 만큼 여유 공간 */
+    }
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 360px;
+      padding: 20px;
+      flex: 1;
+    }
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 40px;
+      font-weight: 500;
+    }
+    .icon {
+      width: 80px;
+      height: auto;
+      margin-bottom: 40px;
+      opacity: 0.8;
+    }
+    .subtitle {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid var(--accent-color);
+      margin: 20px 0;
+      opacity: 0.5;
+    }
+    .btn {
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: transform 0.1s;
+    }
+    .btn:active {
+      transform: scale(0.98);
+    }
+    nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--bg-color);
+      border-top: 1px solid var(--accent-color);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 8px 0;
+    }
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--accent-color);
+      opacity: 0.7;
+      text-decoration: none;
+    }
+    .nav-item.active,
+    .nav-item:hover {
+      opacity: 1;
+    }
+    .nav-item img {
+      width: 24px;
+      height: auto;
+      margin-bottom: 4px;
+    }
+  </style>
 </head>
 <body>
-  <div class="app-container">
-    <!-- 여기에 디자인 컴포넌트가 들어갑니다 -->
-     <!-- index.html 내 .app-container 안 -->
-<section class="trash-screen">
-  <img src="assets/images/trash-can.png" alt="감정 쓰레기통" class="trash-img"/>
-  <div class="emotion-buttons">
-    <button data-emotion="anger">😡</button>
-    <button data-emotion="sad">😢</button>
-    <button data-emotion="happy">😊</button>
-    <!-- 필요에 따라 버튼 추가 -->
+  <div class="container">
+    <h1>감정 쓰레기통</h1>
+    <img src="trash-icon.svg" alt="쓰레기통 아이콘" class="icon">
+    <p class="subtitle">감정을 적어보세요</p>
+    <hr>
+    <button class="btn">감정쓰레기 버리기</button>
   </div>
-</section>
 
-  </div>
-  <script src="js/main.js"></script>
+  <nav>
+    <a href="#" class="nav-item">
+      <img src="home-icon.svg" alt="홈">
+      <span>홈</span>
+    </a>
+    <a href="#" class="nav-item active">
+      <img src="trash-icon.svg" alt="쓰레기통">
+      <span>쓰레기통</span>
+    </a>
+    <a href="#" class="nav-item">
+      <img src="note-icon.svg" alt="감정노트">
+      <span>감정노트</span>
+    </a>
+    <a href="#" class="nav-item">
+      <img src="palette-icon.svg" alt="감정아트">
+      <span>감정아트</span>
+    </a>
+    <a href="#" class="nav-item">
+      <img src="star-icon.svg" alt="별점">
+      <span>별점</span>
+    </a>
+  </nav>
 </body>
 </html>
