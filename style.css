@@ -29,3 +29,25 @@ body { font-family: sans-serif; background: #f5f5f5; }
   transform: scale(1.2);
   transition: transform 0.2s;
 }
+
+/* …이전 변수 및 리셋 스타일 생략… */
+
+/* contenteditable 영역 스타일 */
+.editable {
+  width: 100%;
+  max-width: 360px;
+  min-height: 40px;
+  border: none;
+  border-bottom: 1px solid var(--accent-color);
+  background: transparent;
+  color: var(--text-color);
+  font-size: 1rem;
+  padding: 8px 0;
+  margin-bottom: 20px;
+  outline: none;
+  cursor: text;
+}
+/* placeholder 텍스트 */
+.editable:empty:before {
+  content: attr(data-placeholder);
+}
