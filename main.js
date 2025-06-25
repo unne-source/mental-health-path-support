@@ -9,21 +9,29 @@
 });
 */
 const dumpBtn = document.getElementById('dumpBtn');
-const emotionInput = document.getElementById('emotionField');
+const emotionField = document.getElementById('emotionField');
 const trashList = document.getElementById('trashList');
 
-dumpBtn.addEventListener('click', () => {
+dumpBtn.addEventListener('click', async () => {
   const text = emotionField.innerText.trim();
   if (!text) {
     alert('감정을 입력해주세요');
-    emotionField.focus();
     return;
   }
-  const entry = document.createElement('div');
-  entry.textContent = `${text}`;
-  trashList.appendChild(entry);
 
-  emotionField.innerText = '';
-  emotionField.blur();
-  emotionField.focus();
+  try {
+    await fetch('http://localhost:8000/trash', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text })
+    });
+
+    emotionField.innerText = '';
+    emotionField.focus();
+    alert('감정이 쓰레기통에 저장되었습니다.');
+
+  } catch (err) {
+    alert('서버 연결 실패');
+    console.error(err);
+  }
 });

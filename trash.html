@@ -1,0 +1,17 @@
+<body>
+  <h1>쓰레기통에 저장된 감정들</h1>
+  <div id="savedTrashList"></div>
+
+  <script>
+    fetch('http://localhost:8000/trash')
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById('savedTrashList');
+        data.trash.forEach(text => {
+          const item = document.createElement('div');
+          item.textContent = `🗑️ ${text}`;
+          list.appendChild(item);
+        });
+      });
+  </script>
+</body>
