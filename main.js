@@ -1,4 +1,4 @@
-document.querySelectorAll('.emotion-buttons button')
+/*document.querySelectorAll('.emotion-buttons button')
   .forEach(btn => {
     btn.addEventListener('click', () => {
       const emo = btn.dataset.emotion;
@@ -7,22 +7,23 @@ document.querySelectorAll('.emotion-buttons button')
       // 추후: backend로 전송 → GPT 응답 받아오기
     });
 });
-
+*/
 const dumpBtn = document.getElementById('dumpBtn');
 const emotionInput = document.getElementById('emotionField');
 const trashList = document.getElementById('trashList');
 
 dumpBtn.addEventListener('click', () => {
-  const text = emotionField.innerTxt.trim();
+  const text = emotionField.innerText.trim();
   if (!text) {
     alert('감정을 입력해주세요');
     emotionField.focus();
     return;
   }
   const entry = document.createElement('div');
-  entry.textContent = `🗑️ ${text}`;
+  entry.textContent = `${text}`;
   trashList.appendChild(entry);
-  
+
   emotionField.innerText = '';
+  emotionField.blur();
   emotionField.focus();
 });
