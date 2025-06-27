@@ -20,16 +20,13 @@ dumpBtn.addEventListener('click', async () => {
   }
 
   try {
-    await fetch('http://localhost:8000/trash', {
+    await fetch('/trash', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text })
     });
-
-    emotionField.innerText = '';
-    emotionField.focus();
     alert('감정이 쓰레기통에 저장되었습니다.');
-
+    emotionField.value = '';   
   } catch (err) {
     alert('서버 연결 실패');
     console.error(err);

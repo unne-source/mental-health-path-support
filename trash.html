@@ -3,22 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <title>쓰레기통</title>
-  <link rel="stylesheet" href="/static/style.css">
   <style>
-  body {
-    background-color: #2E2E48;
-    color: #EDEDED; /* 글씨색도 홈화면처럼 */
-    margin: 0;
-    padding: 0;
-    font-family: "Noto Sans KR", sans-serif;
-  }
-</style>
-
+    body {
+      background-color: #2E2E48;
+      color: #EDEDED;
+      margin: 0;
+      padding: 0;
+      font-family: "Noto Sans KR", sans-serif;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>쓰레기통</h1>
-    <p>여기에 홈 화면에서 적은 내용을 표시할 수 있습니다.</p>
-  </div>
+  <h1>쓰레기통에 저장된 감정들</h1>
+  <div id="savedTrashList"></div>
+
+  <script>
+    fetch('/trash')
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById('savedTrashList');
+ list.innerHTML = "";
+
+    // 날짜별로 그룹핑
+    const grouped = {};
+    data.trash.forEach(item => {
+      const date = item.date;
+      if (!grouped[date]) grouped[date] = [];
+      grouped[date].push(item.text);
+    });
+
+    // 날짜별로 div 생성
+    Object.keys(grouped).sort().reverse().forEach(date => {
+      const dateHeader = document.createElement('h2');
+      dateHeader.textContent = date;
+      list.appendChild(dateHeader);
+
+      grouped[date].forEach(text => {
+        const div = document.createElement('div');
+        div.textContent = ` ${text}`;
+        list.appendChild(div);
+      });
+        });
+      });
+  </script>
 </body>
 </html>
