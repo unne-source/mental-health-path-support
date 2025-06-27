@@ -1,17 +1,24 @@
-<body>
-  <h1>쓰레기통에 저장된 감정들</h1>
-  <div id="savedTrashList"></div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>쓰레기통</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+  body {
+    background-color: #2E2E48;
+    color: #EDEDED; /* 글씨색도 홈화면처럼 */
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+</style>
 
-  <script>
-    fetch('http://localhost:8000/trash')
-      .then(res => res.json())
-      .then(data => {
-        const list = document.getElementById('savedTrashList');
-        data.trash.forEach(text => {
-          const item = document.createElement('div');
-          item.textContent = `🗑️ ${text}`;
-          list.appendChild(item);
-        });
-      });
-  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>쓰레기통</h1>
+    <p>여기에 홈 화면에서 적은 내용을 표시할 수 있습니다.</p>
+  </div>
 </body>
+</html>
